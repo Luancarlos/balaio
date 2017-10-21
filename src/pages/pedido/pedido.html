@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-toolbar color="vermelho">
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>MEU PEDIDO</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="naoExiste" *ngIf="!pedido.hasItens">
+        <h2>Pedido Vazio</h2>
+        <img src="assets/img/unhappy.png">
+
+        <div class="campo_verde">
+            <a (click)="irParaAdicionarItem()">
+                <button class="flat"><i class="fa fa-plus"></i></button>
+            </a>
+            <p>ADICIONAR ITENS</p>
+        </div>
+    </div>
+    <div *ngIf="!!pedido.hasItens">
+        <br/>
+        <ul class="media-list" id="lista_meupedido">
+            <li class="media" *ngFor="let item of pedido.itens">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="{{item.imagem}}">
+                        <i class="fa fa-trash remover_item" style="margin-top: 5px;" (click)="removerItem(item)"></i>
+                    </a>
+                </div>
+                <div class="media-body"><h4 class="media-heading">
+                    <strong>{{item.nome}}</strong></h4>
+                    <p class="descricao">{{item.ingredientes}}</p>
+                    <span class="lanche_preco">R$ {{item.preco * item.quantidade}}</span>
+                    <span class="txt_qtd pull-right">{{item.quantidade}}</span></div>
+            </li>
+        </ul>
+
+
+        <div class="adicionarItens">
+            <a (click)="irParaAdicionarItem()">
+                <button class="flat"><i class="fa fa-plus"></i></button>
+            </a>
+            <p>ADICIONAR MAIS ITENS</p>
+        </div>
+
+        <div class="row">
+            <div class="col col-md-6" [ngClass]="{'ativado': !pedido.isReceberPedidoCasa}"
+                 (click)="pedidoOpcaoEntrega('retirar')">
+                <span>RETIRAR PEDIDO</span>
+            </div>
+            <div class="col col-md-6" [ngClass]="{'ativado': pedido.isReceberPedidoCasa}"
+                 (click)="pedidoOpcaoEntrega('receber')">
+                <span>RECEBER EM CASA</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-12">
+                <p style="text-align: center" id="meuPedido_total">
+                    <strong id="total">TOTAL R$ {{pedido.valorTotal}}</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</ion-content>
+<ion-footer>
+    <footer>
+        <a *ngIf="pedido.valorTotal > 0; else elseBlock" (click)="irParaProximaEtapa()">{{textoBotaoEtapa()}}</a>
+        <ng-template #elseBlock><a disabled="disabled">{{textoBotaoEtapa()}}</a></ng-template>
+    </footer>
+</ion-footer>

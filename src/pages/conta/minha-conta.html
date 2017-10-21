@@ -1,0 +1,45 @@
+<ion-header>
+
+    <ion-toolbar color="vermelho" *ngIf="!telaAnterior; else elseBlockTipoBarra">
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>MINHA CONTA</ion-title>
+    </ion-toolbar>
+    <ng-template #elseBlockTipoBarra>
+        <ion-navbar color="vermelho">
+            <ion-title>MINHA CONTA</ion-title>
+        </ion-navbar>
+    </ng-template>
+
+</ion-header>
+
+<ion-content>
+
+    <div class="divisao">
+        Dados
+    </div>
+    <ul class="lista">
+        <li><a (click)="irParaCadastro()">{{cliente.nome}}</a></li>
+        <li><a (click)="irParaCadastro()">{{cliente.login}}</a></li>
+        <li><a (click)="irParaCadastro()">{{cliente.telefone}}</a></li>
+    </ul>
+
+    <div class="divisao">
+        Opções
+    </div>
+
+    <ul class="lista">
+        <li><a (click)="alterarSenha()">Alterar Senha</a></li>
+        <li><a (click)="irParaCadastro()">Meu Endereço</a></li>
+        <li><a (click)="avalidaApp()">Avaliar App</a></li>
+        <li><a (click)="enviarSugestao()">Enviar Sugestões</a></li>
+    </ul>
+
+
+</ion-content>
+<ion-footer>
+    <footer>
+        <a (click)="efetuarLogout()">Sair</a>
+    </footer>
+</ion-footer>

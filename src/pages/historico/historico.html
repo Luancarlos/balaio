@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="vermelho">
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>HISTÓRICO</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="divisao">
+        PEDIDOS
+    </div>
+
+    <div class="naoExiste" *ngIf="canExibirVazio && (!dataSourceTable || dataSourceTable.length == 0)">
+        <h2>Você não possui pedidos registrados</h2>
+        <img src="assets/img/unhappy.png">
+    </div>
+
+
+    <ion-list inset *ngIf="!!dataSourceTable && dataSourceTable.length > 0 ">
+        <button ion-item *ngFor="let p of dataSourceTable" style="text-align: left; padding-left: 0px;"
+                (click)="irParaDetalhe(p)"
+        >
+            <div class="row">
+                <span class="col col-md-12 pull-left lista-pedido-numero">{{p.numero}}</span>
+            </div>
+            <div class="row">
+                <span class="col col-md-6 lista-pedido-status-pendente" [ngClass]="{finalizado: isStatusFinalizado(p.status)}">{{p.status}}</span>
+                <span class="col col-md-6 lista-pedido-total">R$ {{p.total}}</span>
+                <!--<span class="col col-md-6 pull-right lista-pedido-data">{{p.data | date: 'dd/MM/yyyy'}}</span>-->
+            </div>
+        </button>
+    </ion-list>
+
+</ion-content>
+<ion-footer>
+    <footer>
+        <a *ngIf="horarioAtendimento.isFechado" disabled="disabled">Loja Fechada</a>
+        <a *ngIf="!horarioAtendimento.isFechado" (click)="irParaPedido()">Iniciar Pedido</a>
+    </footer>
+</ion-footer>

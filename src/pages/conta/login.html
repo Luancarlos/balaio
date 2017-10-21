@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>LOGIN</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div style="text-align: center">
+        <img src="assets/img/logo-wide.png" style="max-width: 70%;">
+    </div>
+    <form #form="ngForm" (ngSubmit)="autenticar()">
+
+        <ion-list>
+
+            <ion-item>
+                <ion-label>E-mail</ion-label>
+                <ion-input type="email" [(ngModel)]="loginInfo.login" name="login"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Senha</ion-label>
+                <ion-input type="password" [(ngModel)]="loginInfo.senha" name="senha"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+    </form>
+
+</ion-content>
+<ion-footer>
+
+    <footer>
+
+        <a *ngIf="!!loginInfo.login && !!loginInfo.senha; else elseBlock" (click)="form.ngSubmit.emit()">Acessar</a>
+        <ng-template #elseBlock><a disabled="disabled">Acessar</a></ng-template>
+    </footer>
+
+</ion-footer>

@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>MINHA CONTA</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <form #form="ngForm" (ngSubmit)="salvar()">
+
+        <ion-list>
+            <div class="divisao">
+                Identificação
+            </div>
+            <ion-item>
+                <ion-label>Nome</ion-label>
+                <ion-input type="text" [(ngModel)]="cliente.nome" name="nome"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Telefone</ion-label>
+                <ion-input type="tel" [(ngModel)]="cliente.telefone" name="telefone"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>E-mail</ion-label>
+                <ion-input type="text" [(ngModel)]="cliente.login" name="login"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="!cliente.id">
+                <ion-label>Senha</ion-label>
+                <ion-input type="password" [(ngModel)]="cliente.senha" name="senha"></ion-input>
+            </ion-item>
+
+        </ion-list>
+        <ion-list>
+            <div class="divisao">
+                Região
+            </div>
+
+            <ion-item>
+                <ion-label left>Cidade *</ion-label>
+                <ion-select [(ngModel)]="cidadeSelecionada" name="cidadeSelecionada"
+                            interface="popover">
+                    <ion-option *ngFor="let item of cidades" [value]="item">
+                        {{ item.cidade }}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item *ngIf="cidadeSelecionada?.regiaoId == -999">
+                <ion-label>Nome da Cidade</ion-label>
+                <ion-input type="text" [(ngModel)]="nomeCidade" name="cidadeOutra"></ion-input>
+            </ion-item>
+            <ion-item>
+
+                <ion-label>Bairro *</ion-label>
+                <ion-select [(ngModel)]="bairroSelecionado" name="bairroSelecionado"
+                            [disabled]=" !bairros || bairros.length == 0"
+                            interface="popover"
+                >
+                    <ion-option *ngFor="let item of bairros" [value]="item">
+                        {{ item.bairro }}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item *ngIf="bairroSelecionado?.regiaoId == -999">
+                <ion-label>Nome do Bairro</ion-label>
+                <ion-input type="text" [(ngModel)]="nomeBairro" name="bairroOutro"></ion-input>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <div class="divisao">
+                Endereço
+            </div>
+            <ion-item>
+                <ion-label>Cep</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.cep" name="cep"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Logradouro</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.logradouro" name="logradouro"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Número</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.numero" name="numero"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Complemento</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.complemento" name="complemento"></ion-input>
+            </ion-item>
+        </ion-list>
+
+    </form>
+
+</ion-content>
+<ion-footer>
+    <footer>
+        <a (click)="form.ngSubmit.emit()">Cadastrar</a>
+    </footer>
+</ion-footer>

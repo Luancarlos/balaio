@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>MONTAR PIZZA</ion-title>
+    </ion-navbar>
+</ion-header>
+<br>
+<ion-content>
+
+    <div class="result_pizza">
+
+        <canvas (click)="onClickPizza($event)"
+                style="width: 60%; margin-left: auto; margin-right: auto; display: block; vertical-align: middle"
+                #canvasPizza>
+
+        </canvas>
+
+        <div style="text-align: center; margin-top: 5px; color: #a8a8a8;">
+            <span>Para excluir um sabor, toque nele.</span>
+        </div>
+
+    </div>
+
+    <!-- tamanho quantos sabores -->
+    <div class="divisoes">
+        <ion-range min="1" [max]="tamanhoPizza.limiteSabores" step="1" snaps="true" color="secondary"
+                   [(ngModel)]="divisoes"></ion-range>
+    </div>
+
+    <div class="tipo_pizza">
+        <div class="row">
+            <div class="col col-md-6" [ngClass]="{'ativado': isTipoPizzaSalgada}" (click)="opcaoTipoPizza('salgada')">
+                <p class="ativado">SALGADAS</p>
+            </div>
+            <div class="col col-md-6" id="doces" [ngClass]="{'ativado': !isTipoPizzaSalgada}"
+                 (click)="opcaoTipoPizza('doce')">
+                <p>DOCES</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #dd3f14;padding-left: 10px; padding-right: 10px;">
+
+        <div style="text-align: center; margin-bottom: 5px;color: white;padding-top: 10px;">
+            <span>Para montar sua pizza, toque em um sabor.</span>
+        </div>
+
+        <div class="lista_pizzas">
+
+            <div *ngFor="let p of getPizzas()" style="display: inline-block; margin-right: 10px;">
+                <div class="item-pizza"
+                     (click)="addSabor(p, $event)"
+                     [ngStyle]="{'background-image': 'url(' + p.imagem + ')'}"
+                >
+                </div>
+                <div style="text-align: center">
+                    <span style="color: #fff;">{{p.nome}}</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</ion-content>
+
+<ion-footer>
+    <footer>
+        <a *ngIf="isPizzaCompleta(); else elseBlock" (click)="irParaBorda()">Proximo</a>
+        <ng-template #elseBlock><a disabled="disabled">Próximo</a></ng-template>
+    </footer>
+</ion-footer>

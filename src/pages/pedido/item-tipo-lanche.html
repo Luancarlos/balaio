@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>LANCHES</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <ion-content>
+        <br/>
+        <ul class="media-list">
+
+            <li class="media" *ngFor="let item of dataSourceTable" (click)="venderItem(item)">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="{{item.imagem}}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <strong>{{item.nome}}</strong>
+                    </h4>
+                    <p class="descricao">{{item.ingredientes}}</p>
+                    <p class="lanche_preco">R$ {{item.valor}}</p></div>
+            </li>
+
+        </ul>
+
+    </ion-content>
+
+
+</ion-content>

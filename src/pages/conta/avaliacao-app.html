@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>AVALIAÇÃO</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="cadastro">
+
+        <p id="txt_cadastro" style="margin-left: 5px; margin-right: 5px;">
+            Avalie nosso App e aproveite para dar alguma sugestão!
+        </p>
+
+
+        <div style="width:80%;text-align: center;margin-left: auto;margin-right: auto;">
+            <style>
+                ion-icon {
+                    font-size: 40px;
+                    margin-right: 10px;
+                }
+
+                .icon-ativo {
+                    color: blue;
+                }
+
+            </style>
+
+            <ion-icon (click)="avaliar(1)" name="star-outline" [ngClass]="{'icon-ativo': avaliacao == 1}"></ion-icon>
+            <ion-icon (click)="avaliar(2)" name="star-half" [ngClass]="{'icon-ativo': avaliacao == 2}"></ion-icon>
+            <ion-icon (click)="avaliar(3)" name="star" [ngClass]="{'icon-ativo': avaliacao == 3}"></ion-icon>
+
+        </div>
+
+        <ion-list>
+            <ion-item-divider></ion-item-divider>
+            <ion-item>
+                <ion-label>Sugestão</ion-label>
+
+                <ion-textarea [(ngModel)]="sugestao" name="sugestao"></ion-textarea>
+
+            </ion-item>
+        </ion-list>
+
+    </div>
+</ion-content>
+
+<ion-footer>
+
+    <footer>
+        <a *ngIf="!!avaliacao; else elseBlock" (click)="enviarAvaliacao()">Enviar</a>
+        <ng-template #elseBlock><a disabled="disabled">Enviar</a></ng-template>
+    </footer>
+
+</ion-footer>

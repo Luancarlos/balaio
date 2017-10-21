@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>ITENS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="divisao">
+        PEDIDO {{pedido.numero}}
+    </div>
+    <ion-list>
+        <ion-item *ngFor="let i of dataSourceTable" style="text-align: left; padding-left: 0px;">
+            <div class="row">
+                <span class="col col-md-12 pull-left lista-pedido-numero">{{i.nome}}</span>
+            </div>
+            <div class="row" *ngIf="!!i.ingredientes">
+                <span class="col col-md-12 pull-left" style="font-size: 14px;color: #a8a8a8;">{{i.ingredientes}}</span>
+            </div>
+            <div class="row">
+                <span class="col col-md-6 lista-pedido-status-pendente" style="color: black">Quant.: {{i.quantidade}}</span>
+                <span class="col col-md-6 lista-pedido-total">R$ {{i.total}}</span>
+            </div>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
+

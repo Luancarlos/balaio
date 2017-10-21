@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar color="vermelho" *ngIf="!isExibirVoltar; else elseBlockTipoBarra">
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>MINHA CONTA</ion-title>
+    </ion-toolbar>
+    <ng-template #elseBlockTipoBarra>
+        <ion-navbar color="vermelho">
+            <ion-title>MINHA CONTA</ion-title>
+        </ion-navbar>
+    </ng-template>
+</ion-header>
+
+<ion-content>
+
+
+    <div class="cadastro">
+        <p id="txt_cadastro" style="margin-left: 5px; margin-right: 5px;">Para processeguir, por favor, faça login ou
+            cadastre-se é rapidinho</p>
+
+        <!--<div class="facebook">-->
+        <!--<p>ENTRAR COM O FACEBOOK</p>-->
+        <!--<button class="flat" id="btn_facebook"><i class="fa fa-plus"></i></button>-->
+        <!--</div>-->
+
+        <div class="entrar">
+            <p>ENTRAR</p>
+            <button class="flat" id="btn_entrar" (click)="irParaLogin()"><i class="fa fa-plus"></i></button>
+        </div>
+
+        <div class="cadastrar">
+            <p>CADASTRAR</p>
+            <button class="flat" id="btn_cadastrar" (click)="irParaCadastro()"><i class="fa fa-plus"></i></button>
+        </div>
+    </div>
+</ion-content>

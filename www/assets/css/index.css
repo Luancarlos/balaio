@@ -1,0 +1,458 @@
+/*index.html*/
+.painel #img_principal {
+    width: 100%;
+    min-height: 200px;
+}
+
+.status-online {
+    background: green;
+    color: white;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+.status-offline {
+    background: red;
+    color: white;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+#mapa {
+    background: #dd3f14;
+    color: white;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+.centro {
+    text-align: center;
+}
+
+.panel-group {
+    margin-bottom: 63px;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+/*SOBRE.HTML*/
+.img_sobre {
+    width: calc(50% - 10px);
+    float: left;
+    margin: 5px;
+}
+
+ul.lista li {
+    text-align: center;
+}
+
+/*minha_conta.html*/
+#txt_cadastro {
+    font-size: 13pt;
+    margin-top: 20px;
+    color: #aba6a6;
+    text-align: center;
+}
+
+.cadastro {
+    width: 100%;
+    position: relative;
+}
+
+.facebook {
+    margin: auto;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.facebook p {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    background-color: #3966c5;
+    color: white;
+}
+
+.facebook button {
+    display: block;
+    margin: auto;
+    margin-top: -20px;
+}
+
+.entrar {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.entrar p {
+    width: 100%;
+    text-align: center;
+    padding: 12px 22px 12px 23px;
+    background-color: #3b943e;
+    color: white;
+}
+
+.entrar button {
+    display: block;
+    margin: auto;
+    margin-top: -20px;
+}
+
+.cadastrar {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.cadastrar p {
+    width: 100%;
+    text-align: center;
+    padding: 12px 22px 12px 23px;
+    background-color: #3b943e;
+    color: white;
+}
+
+.cadastrar button {
+    display: block;
+    margin: auto;
+    margin-top: -20px;
+}
+
+button.flat {
+    border: 0px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background: #c5c7ca;
+    color: #727373;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*meu pedido*/
+
+.info {
+    width: 100%;
+    /*float: left;*/
+}
+
+.naoExiste h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.naoExiste img {
+    width: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 60px;
+}
+
+.txt_qtd {
+    padding: 2px 5px 2px 5px;
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 30px;
+    border-radius: 5px;
+}
+
+.adicionarItens {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.adicionarItens p {
+    width: 100%;
+    text-align: center;
+    padding: 25px 22px 25px 23px;
+    background-color: #dd3f14;
+    color: white;
+    font-size: 14pt;
+
+}
+
+.adicionarItens button {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.config {
+    width: 100%;
+    position: absolute;
+    bottom: 40px;
+    padding: 30px;
+}
+
+#meu_pedido_receber {
+    margin-bottom: 50px;
+}
+
+#retirar {
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+#receber {
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+#lista_meupedido {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+#meuPedido_total {
+    margin-top: 20px;
+    font-size: 14pt;
+    color: green;
+}
+
+.ativado {
+    border-bottom: 3px solid green;
+}
+
+.remover_item {
+    margin-left: 42%;
+    margin-top: -5px;
+    color: #a7a8a9;
+}
+
+/*opcionais.html*/
+.bordas_preco {
+    font-size: 11pt;
+    color: green;
+}
+
+/*additem.html*/
+#infor_preco {
+    width: 100%;
+}
+
+#infor_preco p {
+    text-align: right;
+    margin-right: 10px;
+}
+
+#popup_observacao input {
+    border-radius: 0px;
+}
+
+#popup_observacao button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 30px;
+    border-radius: 0px;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.incrementador {
+    margin-right: 35px;
+}
+
+.incrementador .add:before {
+    font-size: 17pt;
+    color: green;
+    padding: 5px;
+}
+
+.incrementador .rm:before {
+    font-size: 17pt;
+    color: red;
+    padding: 5px;
+}
+
+/*pagamento.html*/
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#form_paga {
+    margin: 25px 0px 25px 0px;
+}
+
+#dinheiro {
+    font-size: 13pt;
+    text-align: center;
+    border-bottom: 3px solid green;
+}
+
+#cartao {
+    font-size: 13pt;
+    text-align: center
+}
+
+.campo_verde {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+    margin-top: 30px;
+}
+
+.campo_verde p {
+    width: 100%;
+    text-align: center;
+    padding: 22px;
+    background-color: #3b943e;
+    color: white;
+    font-size: 14pt;
+
+}
+
+.campo_verde button {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+#info_titulos {
+    text-align: right;
+    font-size: 12pt;
+    font-weight: 600;
+}
+
+#info_result {
+    text-align: left;
+    font-size: 12pt;
+    font-weight: 600;
+}
+
+/*lanches.html*/
+.media img {
+    width: 100px;
+}
+
+.lanche_preco {
+    color: green;
+    font-weight: 500;
+}
+
+/*Pizzas.html*/
+.result_pizza {
+    /*	height: calc(100% - 250px);*/
+    width: 100%;
+}
+
+.tipo_pizza p {
+    text-align: center
+}
+
+.result_pizza img {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block;
+}
+
+.lista_pizzas {
+    background: #dd3f14;
+    width: auto;
+    height: 200px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 10px;
+}
+
+.item-pizza {
+    width: 100px;
+    height: 100px;
+    /*margin-right: 10px;*/
+    display: inline-block;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    background-size: cover;
+}
+
+.item-pizza-nome {
+    text-align: center;
+    color: #fff;
+    white-space: normal;
+    position: absolute;
+    top: 100%;
+    left: -5%;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.item-pizza img {
+    width: 100%;
+
+}
+
+.divisoes {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: -5px;
+}
+
+.pedacos {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -12;
+    width: 60%;
+    height: 38%;
+    background: red;
+}
+
+#d1 {
+    background-position-x: 100%;
+}
+
+#d2 {
+    margin-top: 0px;
+    background-position-y: 100%;
+}
+
+#e1 {
+
+}
+
+#e2 {
+    margin-top: -1px;
+}
+
+#e3 {
+    width: 30%;
+    margin-top: -179px;
+    margin-left: 72px;
+}
+
+@media screen and (max-width: 300px) {
+    .img_sobre {
+        width: 45%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

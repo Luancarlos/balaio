@@ -1,0 +1,101 @@
+<ion-header>
+
+    <ion-toolbar color="vermelho">
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>BALAIO DE LENHA</ion-title>
+    </ion-toolbar>
+    <!--<header class="centro vermelho">-->
+    <!--<i class="fa fa-bars pull-left" aria-hidden="true" menuToggle></i>-->
+    <!--<h1 class="titulo">-->
+    <!--BALAIO DE LENHA-->
+    <!--</h1>-->
+    <!--</header>-->
+    <!--<ion-navbar>-->
+    <!--</ion-navbar>-->
+</ion-header>
+<ion-content>
+
+    <div class="painel">
+        <img src="assets/img/home.png" id="img_principal">
+    </div>
+
+    <p class="centro">Forneira climatizada de pizzas variadas tradicionais, especiais e doces</p>
+
+    <!-- acoordion -->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                       aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa fa-clock-o"></i>
+                        Atendimento
+
+                        <i class="fa fa-caret-down pull-right"></i>
+                        <div class="pull-right" style="text-align: right;">
+                            <span *ngIf="horarioAtendimento.isFechado" class="pull-right" class="status-offline">OFFLINE</span>
+                            <span *ngIf="!horarioAtendimento.isFechado" class="pull-right" class="status-online">ONLINE</span>
+
+                        </div>
+
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <p class="centro" *ngIf="!horarioAtendimento.isFechado">ATENDIMENTO HOJE</p>
+                    <p class="centro" *ngIf="horarioAtendimento.isFechado">NÃO ESTAMOS ATENDENDO</p>
+                    <p class="centro" *ngIf="!horarioAtendimento.isFechado" >{{horarioAtendimento.horarioInicial }} ÀS {{horarioAtendimento.horarioFinal}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fa fa-map-marker"></i>
+                        Endereço
+                        <i class="fa fa-caret-down pull-right"></i>
+
+                    </a>
+                    <!--<span class="pull-right" id="mapa">MAPA</span>-->
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    <p class="centro">RUA MATO GROSSO</p>
+                    <p class="centro">JARDIM ITÁLIA CHAPECÓ | SC RUA MATO GROSSO</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="fa fa-credit-card"></i>
+                        Formas de Pagamento
+                        <i class="fa fa-caret-down pull-right"></i>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <div class="painel">
+                        <img src="assets/img/formas-pagamento.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <footer>
+        <a *ngIf="horarioAtendimento.isFechado" disabled="disabled">Loja Fechada</a>
+        <a *ngIf="!horarioAtendimento.isFechado" (click)="irParaPedido()">Iniciar Pedido</a>
+    </footer>
+</ion-footer>

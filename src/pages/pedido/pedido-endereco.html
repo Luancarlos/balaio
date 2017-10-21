@@ -1,0 +1,101 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>ENDEREÇO ENTREGA</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="cadastro">
+
+        <p id="txt_cadastro" style="margin-left: 5px; margin-right: 5px;">
+            Confirme os dados que serão utilizados para entrega do pedido. Caso seja necessário,
+            você também poderá editá-los.
+        </p>
+
+    </div>
+
+    <form>
+
+        <ion-list>
+            <div class="divisao">
+                Região
+            </div>
+
+            <ion-item>
+                <ion-label left>Cidade *</ion-label>
+                <ion-select [(ngModel)]="cidadeSelecionada" name="cidadeSelecionada"
+                            interface="popover"
+                >
+                    <ion-option *ngFor="let item of cidades" [value]="item">
+                        {{ item.cidade }}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+
+                <ion-label>Bairro *</ion-label>
+                <ion-select [(ngModel)]="bairroSelecionado" name="bairroSelecionado"
+                            [disabled]=" !bairros || bairros.length == 0"
+                            interface="popover"
+                >
+                    <ion-option *ngFor="let item of bairros" [value]="item">
+                        {{ item.bairro }}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list>
+            <div class="divisao">
+                Identificação
+            </div>
+            <ion-item>
+                <ion-label>Nome *</ion-label>
+                <ion-input type="text" [(ngModel)]="cliente.nome" name="nome"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Telefone *</ion-label>
+                <ion-input type="tel" [(ngModel)]="cliente.telefone" name="telefone"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list>
+
+            <div class="divisao">
+                Endereço
+            </div>
+
+            <ion-item>
+                <ion-label>Logradouro *</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.logradouro" name="logradouro"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Número *</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.numero" name="numero"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Complemento</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.complemento" name="complemento"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Referência</ion-label>
+                <ion-input type="text" [(ngModel)]="endereco.referencia" name="referencia"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+    </form>
+
+</ion-content>
+
+<ion-footer>
+    <footer>
+        <a *ngIf="!validarPreenchimento(true); else pagamentoAtivo" disabled="disabled">Pagamento</a>
+        <ng-template #pagamentoAtivo><a (click)="irParaProximaEtapa()">Pagamento</a></ng-template>
+    </footer>
+</ion-footer>

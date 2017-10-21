@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>OPCIONAIS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <div class="divisao">
+        BORDAS
+    </div>
+    <ul class="lista">
+
+        <li *ngFor="let b of dataSourceTable" (click)="selecionarBorda(b)"><a >{{b.nome}}</a>
+            <span *ngIf="!!b.valor" class="bordas_preco">R$ {{b.valor}}</span>
+        </li>
+
+    </ul>
+
+</ion-content>

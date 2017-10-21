@@ -1,0 +1,28 @@
+<ion-menu [content]="content">
+    <ion-header>
+
+    </ion-header>
+
+    <style>
+        .menuAtivo {
+            color: black;
+        }
+    </style>
+    <ion-content>
+        <div class="sidenav" style="width: 100%">
+            <div class="painel">
+                <img src="assets/img/logo_Balaio_de_Lenha.png" alt="">
+            </div>
+            <a menuClose *ngFor="let p of pages" (click)="openPage(p)"
+               [ngClass]="{'menuAtivo': activeTitle == p.title }"
+            >
+                {{p.title}}
+            </a>
+        </div>
+
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

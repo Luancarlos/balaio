@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="vermelho">
+        <ion-title>PAGAMENTO</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <div class="row" id="form_paga">
+        <div class="col col-md-6" [ngClass]="{'ativado': pedido.isTipoPagamentoDinheiro}"
+             (click)="pedidoOpcaoPagamento('dinheiro')">
+            <p>DINHEIRO (ENTREGA)</p>
+        </div>
+        <div class="col col-md-6" [ngClass]="{'ativado': !pedido.isTipoPagamentoDinheiro}"
+             (click)="pedidoOpcaoPagamento('cartao')">
+            <p>CARTÃO CREDITO/DÉBITO (ENTREGA)</p>
+        </div>
+    </div>
+
+    <div class="campo_verde">
+        <button class="flat" (click)="incluirCupomDesconto()"><i class="fa fa-plus"></i></button>
+        <p>INSERIR CUPON DE DESCONTO</p>
+    </div>
+
+    <div class="row" id="info_precos">
+        <div class="col col-md-6" id="info_titulos">
+            <p>PEDIDO</p>
+            <p>TAXA DE ENTREGA</p>
+            <p *ngIf="pedido.desconto > 0">DESCONTO</p>
+            <p><strong>TOTAL</strong></p>
+        </div>
+        <div class="col col-md-6" id="info_result">
+            <p>R$ {{pedido.valorTotal}}</p>
+            <p>R$ {{pedido.taxaEntrega}}</p>
+            <p *ngIf="pedido.desconto > 0">R$ {{pedido.desconto}}</p>
+            <p><strong>R$ {{pedido.valorTotalLiquido}}</strong></p>
+        </div>
+    </div>
+
+</ion-content>
+<ion-footer>
+    <footer>
+        <a *ngIf="pedido.valorTotal > 0; else elseBlock" (click)="finalizarPedido()">{{textoBotaoFinalizar()}}</a>
+        <ng-template #elseBlock><a disabled="disabled">{{textoBotaoFinalizar()}}</a></ng-template>
+    </footer>
+</ion-footer>
